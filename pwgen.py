@@ -62,7 +62,7 @@ def main():
         const=SAVE_PATH,
         metavar="path/to/file",
         dest="save_path",
-        help="save password(s) to file",
+        help="save password(s) to file (NOT RECOMMENDED)",
     )
 
     parser.add_argument(
