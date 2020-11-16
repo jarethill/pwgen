@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/pythonj3
 import argparse
 import sys
 import secrets
@@ -88,7 +88,7 @@ def main():
     password = generate_password(args)
     print(password)
 
-    sys.exit()
+    sys.exit(0)
 
 
 def generate_password(args):
