@@ -1,4 +1,4 @@
-#!/usr/bin/pythonj3
+#!/usr/bin/python3
 import argparse
 import sys
 import secrets
