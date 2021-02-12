@@ -16,7 +16,6 @@ def main():
 
     DIR = path.dirname(path.realpath(__file__))
     FILE_NAME = "output.txt"
-    SAVE_PATH = path.join(DIR, FILE_NAME)
 
     WORDS_MIN_LENGTH = 5
     WORDS_MAX_LENGTH = 15
@@ -67,7 +66,7 @@ def main():
         "--save-to-file",
         nargs="?",
         type=str,
-        const=SAVE_PATH,
+        const=DIR,
         metavar="path/to/file",
         dest="save_path",
         help="save password(s) to file (not recommended)",
@@ -99,8 +98,15 @@ def main():
     validate_args(args)
 
     # Run script
-    password = generate_password(args)
-    print(password)
+    for _ in range(args.num_to_generate):
+        password = generate_password(args)
+
+        if args.save_path and path.exists(args.save_path):
+            with open(path.join(args.save_path, FILE_NAME), 'a+') as f:
+                f.write(password + '\n')
+        else:
+            print(password)
+
 
     sys.exit(0)
 
